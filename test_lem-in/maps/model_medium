@@ -1,0 +1,22 @@
+10
+#rooms
+##start
+start 0 0
+##end
+end 1 1
+A0 2 2
+A1 3 3
+B0 4 4
+B1 5 5
+C1 6 6
+C2 7 7
+#tubes
+start-A0
+start-B0
+A0-A1
+A1-end
+B0-B1
+B1-A1
+A0-C1
+C1-C2
+C2-end
