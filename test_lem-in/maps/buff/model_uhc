@@ -1,0 +1,65 @@
+#rooms
+##start
+start 0 0
+##end
+end 1 1
+A0 2 2
+A1 3 3
+A2 4 4
+B0 5 5
+B1 6 6
+D1 7 7
+D2 8 8
+D3 9 9
+C0 10 10
+C1 11 11
+C2 12 12
+C3 13 13
+E2 14 14
+F2 15 15
+F3 16 16
+F4 17 17
+I4 18 18
+I5 19 19
+G0 20 20
+G1 21 21
+G2 22 22
+G3 23 23
+G4 24 24
+H3 25 25
+H4 26 26
+H3-F2
+H3-H4
+H4-A2
+start-G0
+G0-G1
+G1-G2
+G2-G3
+G3-G4
+G4-D3
+start-A0
+A0-A1
+A0-D1
+A1-A2
+A1-B1
+A2-end
+A2-C3
+start-B0
+B0-B1
+B1-E2
+start-C0
+C0-C1
+C1-C2
+C2-C3
+C3-I4
+D1-D2
+D1-F2
+D2-E2
+D2-D3
+D2-F3
+D3-end
+F2-F3
+F3-F4
+F4-end
+I4-I5
+I5-end

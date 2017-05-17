@@ -6,13 +6,13 @@
 #    By: fbouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 17:31:50 by fbouquet          #+#    #+#              #
-#    Updated: 2017/05/17 16:37:25 by fbouquet         ###   ########.fr        #
+#    Updated: 2017/05/17 19:15:15 by fbouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #====EDIT PATH=====#
 
-ACCESS=~/Tests/fbouquet;
+ACCESS=~/Projects/lem-in/;
 
 #======COLORS======#
 
@@ -40,18 +40,29 @@ let "display = 0"
 
 for ARG in $@
 do
-	case $ARG in
-		'--result')	
-			echo "${GREEN}[✓]${EOC}${HIGH} Flag -result- activated${EOC}"
-			let "display = 1"
-			;;
-		'--error')
-			echo "${GREEN}[✓]${EOC}${HIGH} Flag -error- activated${EOC}"
-			let "error = 1"
-			;;
-		*)
-			echo "\n${HIGH}-- ${ARG}${EOC}"
-			ft_validity $ACCESS $error $display
-			;;
-	esac
+	if [[ "${ARG}" =~ ^[-+]?[0-9]+$ ]]
+	then
+		echo "$ARG" > maps/number;
+		MAPS=maps/buff/*;
+		for each_map in $MAPS
+		do
+			mapa=`echo $each_map | cut -d/ -f3`
+			cat maps/number $each_map > maps/test/$mapa
+		done
+	else
+		case $ARG in
+			'--result')	
+				echo "${GREEN}[✓]${EOC}${HIGH} Flag -result- activated${EOC}"
+				let "display = 1"
+				;;
+			'--error')
+				echo "${GREEN}[✓]${EOC}${HIGH} Flag -error- activated${EOC}"
+				let "error = 1"
+				;;
+			*)
+				echo "\n${HIGH}-- ${ARG}${EOC}"
+				ft_validity $ACCESS $error $display
+				;;
+		esac
+	fi
 done
