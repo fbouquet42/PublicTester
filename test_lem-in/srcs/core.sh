@@ -6,7 +6,7 @@
 #    By: fbouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/16 15:53:15 by fbouquet          #+#    #+#              #
-#    Updated: 2017/05/17 16:56:59 by fbouquet         ###   ########.fr        #
+#    Updated: 2017/05/17 17:15:21 by fbouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,11 @@ ft_validity()
 		if [ "$CHECK" != "all is fine" ]
 		then
 			echo "$CHECK"
-			RESULT="`echo "$RESULT" | ./srcs/checker -g`"
-			echo "${HIGH}Your result:${EOC}\n${RESULT}"
+			if [ $3 -eq 1 ]
+			then
+				RESULT="`echo "$RESULT" | ./srcs/checker -g`"
+				echo "${HIGH}Your result:${EOC}\n${RESULT}"
+			fi
 		else
 			echo "${GREEN}${CHECK}${EOC}"
 			ft_optimization 1 $3
