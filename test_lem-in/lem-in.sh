@@ -6,7 +6,7 @@
 #    By: fbouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 17:31:50 by fbouquet          #+#    #+#              #
-#    Updated: 2017/05/17 19:15:15 by fbouquet         ###   ########.fr        #
+#    Updated: 2017/05/17 19:26:44 by fbouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,12 +42,12 @@ for ARG in $@
 do
 	if [[ "${ARG}" =~ ^[-+]?[0-9]+$ ]]
 	then
-		echo "$ARG" > maps/number;
-		MAPS=maps/buff/*;
+		echo "$ARG" > number;
+		MAPS=add_map_without_number/*;
 		for each_map in $MAPS
 		do
-			mapa=`echo $each_map | cut -d/ -f3`
-			cat maps/number $each_map > maps/test/$mapa
+			mapa=`echo $each_map | cut -d/ -f2`
+			cat number $each_map > maps/$mapa
 		done
 	else
 		case $ARG in
