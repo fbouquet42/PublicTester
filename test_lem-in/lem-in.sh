@@ -6,13 +6,13 @@
 #    By: fbouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 17:31:50 by fbouquet          #+#    #+#              #
-#    Updated: 2017/05/17 19:26:44 by fbouquet         ###   ########.fr        #
+#    Updated: 2017/05/18 15:19:23 by fbouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #====EDIT PATH=====#
 
-ACCESS=~/Projects/lem-in/;
+ACCESS=../lem_in;
 
 #======COLORS======#
 
@@ -46,8 +46,11 @@ do
 		MAPS=add_map_without_number/*;
 		for each_map in $MAPS
 		do
-			mapa=`echo $each_map | cut -d/ -f2`
-			cat number $each_map > maps/$mapa
+			mapa="`echo $each_map | cut -d/ -f2`"
+			if [ "$mapa" == "*" ]
+			then
+				cat number $each_map > maps/$mapa
+			fi
 		done
 	else
 		case $ARG in
