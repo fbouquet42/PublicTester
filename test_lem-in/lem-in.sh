@@ -6,7 +6,7 @@
 #    By: fbouquet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 17:31:50 by fbouquet          #+#    #+#              #
-#    Updated: 2017/05/18 15:19:23 by fbouquet         ###   ########.fr        #
+#    Updated: 2017/05/23 13:01:30 by fbouquet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,7 @@ do
 		for each_map in $MAPS
 		do
 			mapa="`echo $each_map | cut -d/ -f2`"
-			if [ "$mapa" == "*" ]
-			then
-				cat number $each_map > maps/$mapa
-			fi
+			cat number $each_map > maps/$mapa
 		done
 	else
 		case $ARG in
